@@ -16,13 +16,13 @@ ssh-agent在打开bash或Git shell时自动运行。复制下面的行，并将�
 >    env=~/.ssh/agent.env
 >    
 >    agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-    
+>    
 >    agent_start () {
 >        (umask 077; ssh-agent >| "$env")
 >        . "$env" >| /dev/null ; }
 >
 >    agent_load_env
-
+>
 >    `#` agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
 >    agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 >
